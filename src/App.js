@@ -52,7 +52,8 @@ function App() {
                 </summary>
               <p><strong>Person Assigned: </strong>{task.assignee}</p>
               <p><strong>Task Description: </strong>{task.description}</p>
-              <img src={task.imgUrl?task.imgUrl:''} alt='task'></img>
+              <img src={task.imgUrl? task.imgUrl :''} alt='task'></img>
+              <img src={task.imgUrl?[task.imgUrl.slice(0, 39), 'resized', task.imgUrl.slice(39)].join(''):''} alt='task-fullsize'></img>
               <form onSubmit={_handleSubmit} action={API+'/tasks/'+task.id+'/images'} method='POST' encType="multipart/form-data">
               <span>Add Image</span>
               <input onChange={_handleChange} name="file" type="file" />
